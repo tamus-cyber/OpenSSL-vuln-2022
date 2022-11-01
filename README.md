@@ -1,6 +1,10 @@
 # OpenSSL-vuln-2022
 
-This repository is provided to track resources related to mitigating the 2022 OpenSSL vulnerability.
+This repository is provided to track resources related to mitigating the 2022 OpenSSL vulnerabilities - CVE-2022-3602 and CVE-2022-3786.
+
+Information regarding the vulnerability specifics can be found [here](https://www.openssl.org/news/secadv/20221101.txt)
+
+The OpenSSL project team has released 3.0.7 to address this vulnerability. Release information can be found [here](https://mta.openssl.org/pipermail/openssl-announce/2022-November/000241.html)
 
 Community tracking of affected and unaffected software can be found [here](https://github.com/NCSC-NL/OpenSSL-2022/tree/main/software)
 
@@ -8,7 +12,7 @@ Community tracking of affected and unaffected software can be found [here](https
 ## Enumeration Scripts
 
 ### findVulnSSL.sh
-This enumeration script identifies processes with loaded OpenSSL 3.0.x `libcrypto` or `libssl` libraries, OpenSSL 3.0.x libraries in the `/usr/lib` directory, and the system-wide OpenSSL 3.0.x package if installed. No output from the script means that none of these were located or that an error has occurred. The script must be run with elevated privileges and has been tested with `dash` and `bash` shells.
+This enumeration script is for use on *nix operating systems and identifies processes with loaded OpenSSL 3.0.x `libcrypto` or `libssl` libraries, OpenSSL 3.0.x libraries in the `/usr/lib` directory, and the system-wide OpenSSL 3.0.x package if installed. No output from the script means that none of these were located or that an error has occurred. The script must be run with elevated privileges and has been tested with `dash` and `bash` shells.
 
 The script can be executed as such 
 ```
@@ -16,7 +20,7 @@ The script can be executed as such
 ```
 
 ### findVulnSSL.ps1
-This enumeration script identifies OpenSSL 3.0.x `libcrypto` libraries on the specified volume (defaults to `C:`). No output means that no vulnerable libraries were found. This script must be run with elevated privileges.
+This enumeration script is for use on Windows operating systems and identifies OpenSSL 3.0.x `libcrypto` libraries on the specified volume (defaults to `C:`). No output means that no vulnerable libraries were found. This script must be run with elevated privileges.
 
 The script can be executed as such 
 ```
@@ -25,6 +29,7 @@ powershell.exe -File findVulnSSL.ps1 -ExecutionPolicy Bypass
 
 ## Changelog
 
+v1.1 - Update README with patch and vulnerability information
 v1.0 - Initial release
 
 ## Contact
